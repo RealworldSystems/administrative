@@ -89,6 +89,8 @@ try {
             }
         }
 
+        Write-Host "[MAIL]: Sending email to $_"
+
         $fileTable = Format-CheckoutFilesAsTable $forEmail | select * -ExcludeProperty RowError, RowState, HasErrors, Name, Table, ItemArray | ConvertTo-HTML
         $html = @"
 <head><title>Checked out Files</title></head><body>Please check in the following files at your convenience: <br/>$fileTable</body>
